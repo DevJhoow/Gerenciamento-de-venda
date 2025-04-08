@@ -1,3 +1,5 @@
+{{-- componente navegação lateral --}}
+
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3 sidebar-sticky">
       <ul class="nav flex-column">
@@ -14,7 +16,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href=" {{ route('produto.index') }} ">
             <span data-feather="shopping-cart" class="align-text-bottom"></span>
             Produtos
           </a>
