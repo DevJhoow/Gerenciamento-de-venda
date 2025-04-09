@@ -13,4 +13,12 @@ class Produto extends Model
         'nome',
         'valor'
     ];
+
+    // metodo filtro de busca 
+    public function getProdutosPesquisarIndex(string $presquisar = '')
+    {
+        return $this->when($presquisar, function ($query, $pesquisar) {
+            $query->where('nome', 'LIKE', "$pesquisar%");
+        })->get();
+    }
 }

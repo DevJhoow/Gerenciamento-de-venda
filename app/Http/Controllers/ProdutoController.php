@@ -6,9 +6,18 @@ use App\Models\Produto;
 
 class ProdutoController extends Controller
 {
-    public function index()
+    protected $produto ; 
+
+    public function __construct(Produto $produto)
     {
-        $findProdutos = Produto::all();
+        $this->produto = $produto;
+    }
+
+    public function index(Request $request)
+    {
+        $pesquisar = $request->pesquisar; // esse pesquisar vem de do form, name = 'pesquisar'
+        
+        $findProdutos = $this->produto->getProdutosPesquisarIndex($pesquisar ?? '');
 
         return view('pages.produtos.paginacao', compact('findProdutos'));
     }
