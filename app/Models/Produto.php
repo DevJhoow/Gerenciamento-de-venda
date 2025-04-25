@@ -14,10 +14,10 @@ class Produto extends Model
         'valor'
     ];
 
-    // metodo filtro de busca 
-    public function getProdutosPesquisarIndex(string $presquisar = '')
+    // filtrar produtos pelo nome 
+    public function getProdutosPesquisarIndex(string $pesquisar = '')
     {
-        return $this->when($presquisar, function ($query, $pesquisar) {
+        return $this->when($pesquisar, function ($query, $pesquisar) {
             $query->where('nome', 'LIKE', "$pesquisar%");
         })->get();
     }

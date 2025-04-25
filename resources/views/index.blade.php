@@ -97,8 +97,6 @@
 
           <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
               @yield('content')
-            
-
        
             </div>
           </main>
@@ -106,11 +104,18 @@
       </div>
 
       @yield('scripts')
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
       <script src=" {{ asset('js/bootstrap.bundle.js') }} "></script>
       <script src=" {{ asset('js/chart.js') }} "></script>
       <script src=" {{ asset('js/feather.js') }} "></script>
-
       <script src=" {{ asset('js/dashboard.js') }}"></script>
       <script src=" {{ asset('js/color_modes.js') }} "></script>
+
+       {{-- BlocUI loading --}}
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
+
+       <script src="/js/projeto.js"></script>
   </body>
 </html>
