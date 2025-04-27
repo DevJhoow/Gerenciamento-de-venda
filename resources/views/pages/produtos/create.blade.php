@@ -15,7 +15,7 @@
         </div>
         <div class="col-12">
             <label for="inputPassword2" class="visually-hidden"> Valor </label>
-            <input class="form-control @error('valor') is-invalid @enderror" id="inputPassword2" name="valor" placeholder="valor">
+            <input id="mask_valor" class="form-control @error('valor') is-invalid @enderror" name="valor" placeholder="valor">
         </div>
         <div class="col-12 d-flex justify-content-center">
             <button type="submit" class="btn btn-success" >Criar</button>

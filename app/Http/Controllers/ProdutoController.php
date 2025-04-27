@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestProduto;
+use App\Models\Componentes;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use Laravel\Prompts\Prompt;
@@ -36,6 +37,9 @@ class ProdutoController extends Controller
     {
         if ($request->method() == "POST") {
             $data = $request->all();
+            $componentes = new Componentes();
+            
+            $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
             Produto::create($data);
 
             return redirect()->route('produto.index');

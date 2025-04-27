@@ -36,3 +36,5 @@ async function deleteRegistroPaginacao(rotaUrl, idDoRegistro) {
     }
 }
 
+$('#mask_valor').mask('#.##0,00', { reverse: true });
+
