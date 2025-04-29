@@ -6,6 +6,7 @@ use App\Http\Requests\FormRequestProduto;
 use App\Models\Componentes;
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use Brian2694\Toastr\Facades\Toastr;
 use Laravel\Prompts\Prompt;
 
 class ProdutoController extends Controller
@@ -42,6 +43,8 @@ class ProdutoController extends Controller
             $data['valor'] = $componentes->formatacaoMascaraDinheiroDecimal($data['valor']);
             Produto::create($data);
 
+            Toastr::success('Inserido com sucesso!');
+
             return redirect()->route('produto.index');
         }
 
@@ -59,6 +62,8 @@ class ProdutoController extends Controller
         
             $buscaRegistro = Produto::find($id);
             $buscaRegistro->update($data);
+
+            Toastr::success('Editado com sucesso!');
 
             return redirect()->route('produto.index');
         }
