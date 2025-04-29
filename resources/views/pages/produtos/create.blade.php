@@ -11,11 +11,11 @@
         
         <div class="col-12">
             <label for="staticEmail2" class="visually-hidden"> Nome </label>
-            <input type="text" class="form-control @error('nome') is-invalid @enderror"  name="nome"  placeholder="nome">
+            <input type="text" value="{{ old('nome') }}" class="form-control @error('nome') is-invalid @enderror"  name="nome"  placeholder="nome">
         </div>
         <div class="col-12">
             <label for="inputPassword2" class="visually-hidden"> Valor </label>
-            <input id="mask_valor" class="form-control @error('valor') is-invalid @enderror" name="valor" placeholder="valor">
+            <input id="mask_valor" value="{{ old('valor') }}" class="form-control @error('valor') is-invalid @enderror" name="valor" placeholder="valor">
         </div>
         <div class="col-12 d-flex justify-content-center">
             <button type="submit" class="btn btn-success" >Criar</button>
