@@ -38,3 +38,29 @@ async function deleteRegistroPaginacao(rotaUrl, idDoRegistro) {
 
 $('#mask_valor').mask('#.##0,00', { reverse: true });
 
+
+function buscarCEP() {
+    const cep = document.getElementById('cep').value.replace(/\D/g, '');
+  
+    if (cep.length !== 8) {
+      alert("CEP inválido!");
+      return;
+    }
+  
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+      .then(resposta => resposta.json())
+      .then(dados => {
+        if (dados.erro) {
+          alert("CEP não encontrado!");
+          return;
+        }
+  
+        document.getElementById('logradouro').value = dados.logradouro;
+        document.getElementById('bairro').value = dados.bairro;
+        document.getElementById('endereco').value = dados.localidade;
+      })
+      .catch(erro => {
+        alert("Erro ao buscar CEP.");
+        console.error(erro);
+      });
+  }

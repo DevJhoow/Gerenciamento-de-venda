@@ -22,9 +22,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="{{ route('clientes.index') }}">
             <span data-feather="users" class="align-text-bottom"></span>
-            Cliente
+            Clientes
           </a>
         </li>
     </div>

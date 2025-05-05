@@ -10,8 +10,9 @@
         <form action="{{ route('produto.index') }}" method="GET"> 
             <input type="text" name="pesquisar" placeholder="digite o nome">
             <button> Pesquisar </button>
-            <a href="{{ route('cadastrar.produto') }}" type="button" class="btn btn-success float-end"> incluir produtos</a>
+            <a href="{{ route('cadastrar.produto') }}" type="button" class="btn btn-success float-end"> Cadastrar produtos</a>
         </form>
+
         {{-- tabela  --}}
         <div class="table-responsive mt-4">
             @if ($findProdutos->isEmpty())
@@ -40,7 +41,6 @@
                                 </td>
                             </tr>
                         @endforeach
-                    
                     </tbody>
                 </table>
             @endif
