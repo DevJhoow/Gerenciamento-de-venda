@@ -55,7 +55,7 @@ function buscarCEP() {
           return;
         }
   
-        document.getElementById('logradouro').value = dados.logradouro;
+        document.getElementById('logradouro').value = dados.logradouro.toUpperCase;
         document.getElementById('bairro').value = dados.bairro;
         document.getElementById('endereco').value = dados.localidade;
       })

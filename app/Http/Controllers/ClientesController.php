@@ -43,21 +43,20 @@ class ClientesController extends Controller
         return view('pages.clientes.create');
     }
 
-    public function atualizarCliente(FormRequestProduto $request, $id)
+    public function atualizarCliente(FormRequestClientes $request, $id)
     {
-        $produto = Cliente::findOrFail($id); // já retorna 404 se o produto não for encontrado
+        $cliente = Cliente::findOrFail($id); // já retorna 404 se o produto não for encontrado
     
         if ($request->isMethod('put')) {
             $dados = $request->validated(); // garante só os dados validos do FormRequestProduto
-    
-            $dados['valor'] = (new Componentes())->formatacaoMascaraDinheiroDecimal($dados['valor']);
-            $produto->update($dados);
+            
+            $cliente->update($dados);
     
             Toastr::success('Editado com sucesso!');
             return redirect()->route('clientes.index');
         }
     
-        return view('pages.clientes.atualizar', compact('produto'));
+        return view('pages.clientes.atualizar', compact('cliente'));
     }
     
     public function delete(Request $request)
