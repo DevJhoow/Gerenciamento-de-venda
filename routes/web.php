@@ -50,6 +50,7 @@ Route::prefix('vendas')->group(function () {
     //CREATE
     Route::get('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.vendas');
     Route::post('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.vendas');
+    Route::get('/enviaComprovantePorEmail/{id}', [VendaController::class, 'enviaComprovantePorEmail'])->name('enviaComprovantePorEmail.vendas');
 });
 
 
