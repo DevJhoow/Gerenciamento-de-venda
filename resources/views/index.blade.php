@@ -7,6 +7,7 @@
       <meta name="description" content="">
       <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
       <meta name="generator" content="Hugo 0.104.2">
+      <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
       <!-- Custom styles for this template -->
       <link href=" {{ asset('css/dashboard.css') }}" rel="stylesheet">
@@ -14,69 +15,15 @@
 
       <!-- Favicons -->
       @yield('styles')
-      <link rel="apple-touch-icon" href="{{ asset('icones/logoB.png') }}" sizes="180x180">
-      <link rel="icon" href="{{ asset('icones/logoBnormal1.png' ) }}" sizes="32x32" type="image/png">
-      <link rel="icon" href="{{ asset('icones/logoBpequenino.png') }}" sizes="16x16" type="image/png">
       <link rel="manifest" href="{{ asset('icones/manifest.json') }}">
       <link rel="mask-icon" href="{{ asset('icones/safari-pinned-tab.svg') }} " color="#712cf9">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
       <link rel="icon" href="{{ asset('icones/logoBnoemal.png') }}">
 
       <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
       
       <meta name="theme-color" content="#712cf9">
-
-      <style>
-        .bd-placeholder-img {
-          font-size: 1.125rem;
-          text-anchor: middle;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          user-select: none;
-        }
-
-        @media (min-width: 768px) {
-          .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-          }
-        }
-
-        .b-example-divider {
-          height: 3rem;
-          background-color: rgba(0, 0, 0, .1);
-          border: solid rgba(0, 0, 0, .15);
-          border-width: 1px 0;
-          box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-        }
-
-        .b-example-vr {
-          flex-shrink: 0;
-          width: 1.5rem;
-          height: 100vh;
-        }
-
-        .bi {
-          vertical-align: -.125em;
-          fill: currentColor;
-        }
-
-        .nav-scroller {
-          position: relative;
-          z-index: 2;
-          height: 2.75rem;
-          overflow-y: hidden;
-        }
-
-        .nav-scroller .nav {
-          display: flex;
-          flex-wrap: nowrap;
-          padding-bottom: 1rem;
-          margin-top: -1px;
-          overflow-x: auto;
-          text-align: center;
-          white-space: nowrap;
-          -webkit-overflow-scrolling: touch;
-        }
-      </style>
 
     </head>
   <body>
@@ -94,16 +41,14 @@
       </header>
 
       <div class="container-fluid">
-        <div class="row">
-          
-          @include('componentes.navegacao')
+          <div class="row">
+            
+              @include('componentes.navegacao')
 
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-              @yield('content')
-       
-            </div>
-          </main>
-        </div>
+              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                  @yield('content')
+              </main>
+          </div>
       </div>
 
       @yield('scripts')
