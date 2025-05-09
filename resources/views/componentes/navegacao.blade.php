@@ -5,7 +5,7 @@
       <ul class="nav flex-column">
         {{-- dashboard --}}
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">
+          <a class="nav-link " aria-current="page" href="{{ route('dashboar.index') }}">
             <span data-feather="home" class="align-text-bottom"></span>
             Dashboard
           </a>
@@ -31,5 +31,12 @@
             Clientes
           </a>
         </li>
-    </div>
-  </nav>
+        {{-- USUARIOS --}}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('usuario.index') }}">
+            <span data-feather="users" class="align-text-bottom"></span>
+            Usuarios
+          </a>
+        </li>
+      </div>
+  </nav
