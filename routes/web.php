@@ -52,13 +52,14 @@ Route::prefix('vendas')->group(function () {
     //CREATE
     Route::get('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.vendas');
     Route::post('/cadastrarVendas', [VendaController::class, 'cadastrarVendas'])->name('cadastrar.vendas');
+    //EMAIL
     Route::get('/enviaComprovantePorEmail/{id}', [VendaController::class, 'enviaComprovantePorEmail'])->name('enviaComprovantePorEmail.vendas');
 });
 
 //USUARIOS
 Route::prefix('usuario')->group(function () {
     Route::get('/', [UsuarioController::class, 'index'])->name('usuario.index');
-    
+    //CREATE
     Route::get('/cadastrarUsuario', [UsuarioController::class, 'cadastrarUsuario'])->name('cadastrar.usuario');
     Route::post('/cadastrarUsuario', [UsuarioController::class, 'cadastrarUsuario'])->name('cadastrar.usuario');
     //UPDATE 

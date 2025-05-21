@@ -11,7 +11,7 @@
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-box-seam"></i> Produtos</h5>
                 <p class="card-text">Total de produtos cadastrados</p>
-                <a href="#" class="btn btn-light fw-bold">{{ $totalDeProdutosCadastrados }}</a>
+                <a href="{{ route('produto.index') }}" class="btn btn-light fw-bold">{{ $totalDeProdutosCadastrados }}</a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-people"></i> Clientes</h5>
                 <p class="card-text">Total de clientes cadastrados</p>
-                <a href="#" class="btn btn-light fw-bold">{{ $totalDeClienteCadastrados }}</a>
+                <a href="{{ route('clientes.index') }}" class="btn btn-light fw-bold">{{ $totalDeClienteCadastrados }}</a>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-cart-check"></i> Vendas</h5>
                 <p class="card-text">Total de vendas cadastradas</p>
-                <a href="#" class="btn btn-light fw-bold">{{ $totalDeVendaCadastrados }}</a>
+                <a href="{{ route('vendas.index') }}" class="btn btn-light fw-bold">{{ $totalDeVendaCadastrados }}</a>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-person-badge"></i> Usuários</h5>
                 <p class="card-text">Total de usuários cadastrados</p>
-                <a href="#" class="btn btn-light fw-bold">{{ $totalDeUsuarioCadastrados }}</a>
+                <a href="{{ route('usuario.index') }}" class="btn btn-light fw-bold">{{ $totalDeUsuarioCadastrados }}</a>
             </div>
         </div>
     </div>

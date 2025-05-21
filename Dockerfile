@@ -1,42 +1,43 @@
-FROM php:8.1-fpm
+FROM php:8.1
 
-# Arguments
-ARG user=projetoroot
-ARG uid=1000
-
-# Install system dependencies
+# Instala dependências do sistema
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    unzip \
+    zip \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
-    zip \
-    unzip
+    libpq-dev \
+    && docker-php-ext-install \
+    pdo_pgsql \
+    mbstring \
+    exif \
+    pcntl \
+    bcmath \
+    gd
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd sockets
-
-# Get latest Composer
+# Instala o Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
+# Define o diretório de trabalho
+WORKDIR /var/www/html
 
-# Install redis
-RUN pecl install -o -f redis \
-    &&  rm -rf /tmp/pear \
-    &&  docker-php-ext-enable redis
+# Copia o código da aplicação
+COPY . .
 
-# Set working directory
-WORKDIR /var/www
+# Instala as dependências do Laravel
+RUN composer install --no-dev --optimize-autoloader
 
-# Copy custom configurations PHP
-COPY docker/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
+# Gera a chave da aplicação
+RUN php artisan key:generate
 
-USER $user
+# Define permissões adequadas
+RUN chmod -R 755 storage bootstrap/cache
+
+# Porta que o Laravel irá rodar
+EXPOSE 8000
+
+# Comando para iniciar o servidor
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
