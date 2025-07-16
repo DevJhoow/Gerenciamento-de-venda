@@ -8,17 +8,11 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VendaController;
 use App\Models\Venda;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-| Rotas do site  
-|
-*/
+Route::get('/', [DashbordController::class, 'index'])->name('dashboar.index');
 
-Route::prefix('dashboard')->group(function () {
-    Route::get('/', [DashbordController::class, 'index'])->name('dashboar.index');
-});
+// Route::prefix('/')->group(function () {
+//     Route::get('/', [DashbordController::class, 'index'])->name('dashboar.index');
+// });
 
 //CRUD PRODUTOS
 Route::prefix('produtos')->group(function () {

@@ -27,8 +27,16 @@ class Venda extends Model
 
     public function getVendasPesquisarIndex(string $pesquisar = '')
     {
-        return $this->when($pesquisar, function ($query, $pesquisar) {
-            $query->where('numero_da_venda', 'LIKE', "$pesquisar%");
-        })->get();
+        return $this->with('produto') // carrega os dados do produto
+            ->when($pesquisar, function ($query, $pesquisar) {
+                $query->whereHas('produto', function ($q) use ($pesquisar) {
+                    $q->where('nome', 'LIKE', "%$pesquisar%");
+                });
+            })
+            ->join('produtos', 'vendas.produto_id', '=', 'produtos.id')
+            ->orderBy('produtos.nome') // ordena alfabeticamente pelo nome do produto
+            ->select('vendas.*') // importante: evita conflito de colunas
+            ->get();
     }
+
 }
